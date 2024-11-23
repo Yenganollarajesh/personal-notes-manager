@@ -2,9 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Joi = require('joi');
 const db = require('./db');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
+ 
 
 // Validation Schema for Notes
 const noteSchema = Joi.object({
