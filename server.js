@@ -66,6 +66,9 @@ app.put('/notes/:id', (req, res) => {
         if (err) {
             return res.status(500).send('Error updating note');
         }
+        if (this.changes === 0) {
+            return res.status(404).send('Note not found');
+        }
         res.send({ id, title, description, category });
     });
 });
